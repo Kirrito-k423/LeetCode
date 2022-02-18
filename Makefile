@@ -3,7 +3,8 @@ CXX=g++
 CFLAGS= 
 OPENMP=
 SOURCES:=$(shell find $(.) -name '*.c')
-SOURCESCXX:=$(shell find $(.) -name '*.cpp')
+# SOURCESCXX:=$(shell find $(.) -name '*.cpp')
+SOURCESCXX:=$(shell find . -type f \( -name "*.cpp" -not -name "tsjCommonFunc.cpp" \) -print)
 LIB=-lm
 OBJS=$(SOURCES:%.c=%)
 OBJS+=$(SOURCESCXX:%.cpp=%)
@@ -17,11 +18,14 @@ all : $(OBJS)
 	if [ ! -d "build"  ]; then mkdir build; fi
 	mv $(OBJS) build
 
-%: %.c
-	$(CC) $(DEBUG) $(CFLAGS) $(OPENMP) $< $(LIB) -o $@
+tsjCommonFunc.o:tsjCommonFunc.cpp 
+	$(CXX) $(DEBUG) $(OPENMP) $(LIB) -c $<
 
-%: %.cpp
-	$(CXX) $(DEBUG) $(OPENMP) $< $(LIB) -o $@
+%: %.c tsjCommonFunc.o
+	$(CC) $(DEBUG) $(CFLAGS) $(OPENMP) $< tsjCommonFunc.o $(LIB) -o $@
+
+%: %.cpp tsjCommonFunc.o
+	$(CXX) $(DEBUG) $(OPENMP) $< tsjCommonFunc.o $(LIB) -o $@
 
 .PHONY: clean showVariable
 

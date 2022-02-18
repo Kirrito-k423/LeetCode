@@ -1,5 +1,14 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Shaojie Tan
+ * @Date: 2022-02-03 21:38:05
+ * @LastEditors: Shaojie Tan
+ * @LastEditTime: 2022-02-19 00:19:16
+ */
 #include <iostream>
 #include <vector>
+#include "../tsjCommonFunc.h"
 using namespace std;
 class Solution {
 public:
@@ -49,8 +58,10 @@ public:
     }
 
 };
+
 int main(){
 	Solution Solution;
+    errorPrint("yahaha");
 	// cout << 2 << endl;
 	cout << Solution.findMinFibonacciNumbers(7) << endl;
 }
