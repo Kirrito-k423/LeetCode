@@ -4,7 +4,7 @@
  * @Author: Shaojie Tan
  * @Date: 2022-02-03 21:38:05
  * @LastEditors: Shaojie Tan
- * @LastEditTime: 2022-02-19 00:19:16
+ * @LastEditTime: 2022-02-19 20:33:11
  */
 #include <iostream>
 #include <vector>
@@ -59,9 +59,20 @@ public:
 
 };
 
+void testTSJ(){
+    int ans=1;int b=1; int c=2;
+    // printf("yahaha %d\n",ans);
+    errorPrint("yahaha %d",ans);
+    splitPrint("yahaha %d",ans);
+    valuePrint(ans);
+    isEqueueFunc(ans,b);
+    isEqueue(b,c);
+    std::vector<char> path{'a', 'b', 'c'};
+    // vector2Print(path);
+}
 int main(){
 	Solution Solution;
-    errorPrint("yahaha");
+    testTSJ();
 	// cout << 2 << endl;
 	cout << Solution.findMinFibonacciNumbers(7) << endl;
 }

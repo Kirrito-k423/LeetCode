@@ -8,7 +8,8 @@ SOURCESCXX:=$(shell find . -type f \( -name "*.cpp" -not -name "tsjCommonFunc.cp
 LIB=-lm
 OBJS=$(SOURCES:%.c=%)
 OBJS+=$(SOURCESCXX:%.cpp=%)
-DEBUG=-g
+DEBUG=-g 
+DEFINE=-DDEBUG
 
 
 all : $(OBJS)
@@ -16,16 +17,17 @@ all : $(OBJS)
 	@echo "编译完成"
 	@echo $(OBJS)
 	if [ ! -d "build"  ]; then mkdir build; fi
+	rm tsjCommonFunc.o
 	mv $(OBJS) build
 
 tsjCommonFunc.o:tsjCommonFunc.cpp 
-	$(CXX) $(DEBUG) $(OPENMP) $(LIB) -c $<
+	$(CXX) $(DEBUG) $(DEFINE) $(OPENMP) $(LIB) -c $< -o $@
 
 %: %.c tsjCommonFunc.o
-	$(CC) $(DEBUG) $(CFLAGS) $(OPENMP) $< tsjCommonFunc.o $(LIB) -o $@
+	$(CC) $(DEBUG)  $(DEFINE) $(CFLAGS) $(OPENMP) $< tsjCommonFunc.o $(LIB) -o $@
 
 %: %.cpp tsjCommonFunc.o
-	$(CXX) $(DEBUG) $(OPENMP) $< tsjCommonFunc.o $(LIB) -o $@
+	$(CXX) $(DEBUG)  $(DEFINE) $(OPENMP) $< tsjCommonFunc.o $(LIB) -o $@
 
 .PHONY: clean showVariable
 
