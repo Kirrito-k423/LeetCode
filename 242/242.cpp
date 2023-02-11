@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <functional>
+#include <cstring>
 #include <cfloat>
 #include "../tsjCommonFunc.h"
 using namespace std;
@@ -21,16 +22,19 @@ public:
         int count[52];
         memset(count, 0 , sizeof(count));
         for(const auto & x : s){
-            cout << x << " " << endl;
             int index = (x > 'Z')?(x-'a'):(x-'A'+26);
-            count[index]++;
+            // cout << x << " " << index << " ";
+            count[index]+=1;
         }
+        // cout<<endl;
         for(const auto & x : t){
             int index = (x > 'Z')?(x-'a'):(x-'A'+26);
-            count[index]--;
+            // cout << x << " " << index << " ";
+            count[index]-=1;
         }
         for(int i=0; i<52; i++){
-            if(count!=0){
+            if(count[i]!=0){
+
                 return false;
             }
         }
