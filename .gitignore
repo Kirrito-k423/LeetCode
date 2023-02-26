@@ -2,3 +2,4 @@
 build/
 build
 a.out
+*.log

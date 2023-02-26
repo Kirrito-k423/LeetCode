@@ -13,8 +13,10 @@
 #include <string>
 #include <functional>
 #include <cstring>
+#include <algorithm>
 #include <cfloat>
 #include <unordered_set>
+#include <queue>
 
 #ifndef __tsjFUNCTION_H__
 #define __tsjFUNCTION_H__
