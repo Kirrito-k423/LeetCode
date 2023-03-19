@@ -8,7 +8,7 @@
 			"name": "(gdb) leetcode启动",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/1391/a.out",
+			"program": "${workspaceFolder}/周赛/337/a.out",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
