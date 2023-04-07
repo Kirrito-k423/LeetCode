@@ -60,7 +60,8 @@
         "memory_resource": "cpp",
         "random": "cpp",
         "string": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "queue": "cpp"
     },
     "editor.minimap.enabled": true,
     "C_Cpp.autocomplete": "Default",
