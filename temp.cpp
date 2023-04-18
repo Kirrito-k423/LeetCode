@@ -4,6 +4,8 @@
 #include <string>
 #include <cstring> // memset
 #include <unordered_set>
+#include <math.h>
+#include <algorithm>
 #include <iostream> // std::cout endl
 using namespace std;
 
