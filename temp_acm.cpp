@@ -12,6 +12,13 @@ int main(){
 	int N;
 	int answer = 0;
 	cin >> N;
+	// int input;
+	// vector<int> inputList;
+	// while(cin >> input) {
+	// 	inputList.push_back(input);
+	// }
+	// inputList.erase(inputList.end()-1);//去除最后一个元素
 
 	cout << answer << endl;
 }
+
