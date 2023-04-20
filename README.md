@@ -13,4 +13,16 @@
 use gdbgui
 
 
+## Leetcode debug
+
+参考[文章](https://blog.csdn.net/zhangpeterx/article/details/88775434)，LC不会显示，可以本地调试，会具体显示错误在哪一行
+```bash
+gcc -O -g -fsanitize=address  test.cpp
+./a.out
+=================================================================
+==4012331==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000000c at pc 0x5570841f9c65 bp 0x7ffe3e15cb80 sp 0x7ffe3e15cb70
+READ of size 4 at 0x60200000000c thread T0
+    #0 0x5570841f9c64 in Solution::makeArrayIncreasing(std::vector<int, std::allocator<int> >&, std::vector<int, std::allocator<int> >&) /staff/shaojiemike/github/LeetCode/1001-1500/1187/1187.cpp:36
+```
+
 
