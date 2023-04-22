@@ -61,7 +61,9 @@
         "random": "cpp",
         "string": "cpp",
         "variant": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "forward_list": "cpp",
+        "regex": "cpp"
     },
     "editor.minimap.enabled": true,
     "C_Cpp.autocomplete": "Default",
