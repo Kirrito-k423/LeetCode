@@ -63,7 +63,8 @@
         "variant": "cpp",
         "queue": "cpp",
         "forward_list": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "valarray": "cpp"
     },
     "editor.minimap.enabled": true,
     "C_Cpp.autocomplete": "Default",

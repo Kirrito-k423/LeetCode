@@ -29,6 +29,7 @@ const int MAXN = 105;
 class Solution {
    public:
     int g[MAXN][MAXN];
+	// int (&adList)[MAXN][MAXN] = g;
     int degree[100]; // ?
     vector<point> points;
     int n, dp[MAXN], st[MAXN][MAXN], ans;
@@ -99,3 +100,36 @@ int main(){
 	vector<vector<int>> trips = {{0,0,1},{1,0,1}};
 	cout << solution.fieldOfGreatestBlessing( trips)<< endl;
 }
+
+// class Solution {
+// public:
+//     int fieldOfGreatestBlessing(vector<vector<int>>& forceField) {
+//         vector<float> x, y;
+//         vector<vector<float>> cood;
+//         for(int i = 0; i < forceField.size(); i++){
+//             vector<int> s = forceField[i];
+//             x.push_back(float(s[0]) - float(s[2])/2);
+//             x.push_back(float(s[0]) + float(s[2])/2);
+//             y.push_back(float(s[1]) - float(s[2])/2);
+//             y.push_back(float(s[1]) + float(s[2])/2);
+//             cood.push_back({float(s[0]) - float(s[2])/2, float(s[0]) + float(s[2])/2, 
+//                             float(s[1]) - float(s[2])/2, float(s[1]) + float(s[2])/2 });
+//         }
+//         int result = 1;
+//         for(int i = 0; i < x.size(); i++){
+//             for(int j = 0; j < y.size(); j++){
+//                 int cur_result = 0;
+//                 for(int k = 0; k < cood.size(); k++){
+//                     if(x[i] >= cood[k][0] && x[i] <= cood[k][1]
+//                       && y[j] >= cood[k][2] && y[j] <= cood[k][3]){
+//                         cur_result++;
+//                     }
+//                 }
+//                 if(cur_result > result){
+//                     result = cur_result;
+//                 }   
+//             }
+//         }
+//         return result;
+//     }
+// };

@@ -6,7 +6,7 @@ typedef pair<int,int>PII;
 #define x first
 #define y second
 typedef long long ll;
-const int N=1E5+10,M=210;
+// const int N=1E5+10,M=210;
 
 
 class Solution {
@@ -15,8 +15,8 @@ public:
 		int n1 = arr1.size();
 		int n2 = arr2.size();
 		sort(arr2.begin(), arr2.end());
-
-		vector<vector<int>> f(2,vector<int>(n2+2,0));
+		int N = max(n1, n2+2)+1;
+		vector<vector<int>> f(2,vector<int>(N,0));
 		int i;
 		
 		for(i=1; i<=n1; i++) {
@@ -31,18 +31,19 @@ public:
 				}
 			}
 			int val = f[(I+1)%2][j];
-			for(; j <= n2 ; j++) {
+			for(; j < N-2 ; j++) {
 				if(f[(I+1)%2][j]==INT_MAX)
 					f[I][j+1]=val;
 				else{
 					f[I][j+1]=min(f[(I+1)%2][j]+1,val);
 				}
 			}
-			int tmp = f[I][n2+1];
+			f[I][j+1]=min(f[(i+1)%2][N-1],min(f[(I+1)%2][j]+1,val));
+			int tmp = f[I][N-1];
 			if (tmp==INT_MAX) return -1;
-			f[(I+1)%2].clear();
+			// f[(I+1)%2].clear();
 		}
-		return f[(i+1)%2][n2+1];
+		return f[(i+1)%2][N-1];
     }
 };
 
