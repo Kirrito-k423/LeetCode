@@ -8,7 +8,12 @@ typedef long long ll;
 const int N=1E5+10,M=210;
 
 
-
+class Solution {
+public:
+    int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
+        return (arrivalTime+delayedTime)%24;
+    }
+};
 // int main(){
 // 	Solution solution;
 // 	vector<vector<int>> edges = {{{0,1},{1,2},{1,3}}} ;

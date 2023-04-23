@@ -8,6 +8,17 @@ typedef long long ll;
 const int N=1E5+10,M=210;
 
 
+class Solution {
+public:
+    int sumOfMultiples(int n) {
+		int sum = 0;
+        for(int i=1; i<=n; i++){
+			if(i%3==0 || i%5==0||i%7==0)
+				sum += i;
+		}
+		return sum;
+    }
+};
 
 // int main(){
 // 	Solution solution;

@@ -8,6 +8,42 @@ typedef long long ll;
 const int N=1E5+10,M=210;
 
 
+class Solution {
+public:
+    vector<int> getSubarrayBeauty(vector<int>& nums, int k, int x) {
+		//-50 <= nums[i] <= 50 
+		// 记录次数
+		int n = nums.size();
+		int count[102];
+		memset(count, 0, sizeof(count));
+		//先读取k个元素
+		int i=0;
+		for(; i<k; i++) {
+			count[nums[i]+50]++;
+		}
+		vector<int> result;
+		function<int()> findMinXth = [&](){
+			int restX = x;
+			int result = 0;
+			for(int j=0; j<102; j++){
+				if(restX <= count[j])
+
+					return (j-50)<0?(j-50):0;
+				else
+					restX -= count[j];
+			}
+			return result;
+		};
+		for(; i<n; i++) {
+			result.push_back(findMinXth());
+			count[nums[i]+50]++;
+			count[nums[i-k]+50]--;
+		}
+		result.push_back(findMinXth());
+		return result;
+    }
+};
+
 
 // int main(){
 // 	Solution solution;
