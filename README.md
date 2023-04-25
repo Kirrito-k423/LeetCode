@@ -25,4 +25,8 @@ READ of size 4 at 0x60200000000c thread T0
     #0 0x5570841f9c64 in Solution::makeArrayIncreasing(std::vector<int, std::allocator<int> >&, std::vector<int, std::allocator<int> >&) /staff/shaojiemike/github/LeetCode/1001-1500/1187/1187.cpp:36
 ```
 
+## 大厂笔试网站以及考试说明
 
+* [华为](https://shixizhi.huawei.com/iexam/helpCenter.html#/examGuide/index)
+  * 考试全程请不要跳出考试页面（编程类题允许离开页面使用本地IDE），前三次切换会有弹窗提示，之后将不再提示但会后台记录。不要使用或访问任何与考试无关的网页、搜索、聊天工具；
+  * 好像没有强制类型转换？
