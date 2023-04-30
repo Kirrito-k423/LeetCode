@@ -10,7 +10,7 @@ int main()
     // please define the C++14 output here. For example:cout<<____<<endl;
     char ch;
     while(cin){
-        ch=cin.get()
+        ch=cin.get();
         if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
             cout << (char)(ch+('A' - 'a')) ;
         }else if(ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U'){
