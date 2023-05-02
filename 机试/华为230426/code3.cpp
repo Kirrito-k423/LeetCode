@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<vector>
 #include<string>
+#include<limits.h>
 
 using namespace std;
 
@@ -16,9 +17,9 @@ struct GrassTp {
 	bool operator < (const GrassTp& other) const {
 		if (dist == other.dist) {
 			if (x == other.x)
-				return x < other.x;
-			else
 				return y < other.y;
+			else
+				return x < other.x;
 		}
 		return dist < other.dist;
 	}
@@ -41,7 +42,7 @@ int Dist(GrassTp a, GrassTp b) {
 void ReadData() {
 	cin >> gM;
 	cin >> gN;
-	int xmin, ymin, xmax, ymax;
+	int xmin=INT_MAX, ymin=INT_MAX, xmax=INT_MIN, ymax=INT_MIN;
 	for (int index = 0; index < gN; index++) {
 		cin >> gGrass[index].x >> gGrass[index].y;
 		xmin = min(xmin, gGrass[index].x);
@@ -101,21 +102,33 @@ int BinarySearch() {
 		cout << 0 << endl;
 		return 0;
 	}
-	while (rb > lb) {
+	while(lb < rb + 1){
 		int mid = (lb + rb) >> 1;
 		int max_types = CountGrass(mid);
 		if (max_types >= gM) {
 			rb = mid;
 		}
 		else {
-			lb = mid + 1;
+			lb = mid;
 		}
 	}
-    int max_types = CountGrass(rb);
-    if (max_types == gM)
-	    cout << rb << endl;
-    else
-        cout << 0 << endl;
+	cout << rb << endl;
+	// while (rb > lb) {
+	// 	int mid = (lb + rb) >> 1;
+	// 	int max_types = CountGrass(mid);
+	// 	if (max_types >= gM) {
+	// 		rb = mid;
+	// 	}
+	// 	else {
+	// 		lb = mid + 1;
+	// 	}
+	// }
+    // int max_types = CountGrass(rb);
+    // if (max_types == gM)
+	//     cout << rb << endl;
+    // else
+    //     cout << 0 << endl;
+	return 0;
 }
 
 int main() {

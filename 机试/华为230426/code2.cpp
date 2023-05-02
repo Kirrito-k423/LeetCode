@@ -13,7 +13,7 @@ vector<int> gResourceCount(100000, -1);
 vector<int> gUsedCount(100000, -1);
 
 int main() {
-	freopen("input.txt", "r", stdin);
+	// freopen("input.txt", "r", stdin);
 	int l, r, m;
 	cin >> l >> r >> m;
 	int head = 0;

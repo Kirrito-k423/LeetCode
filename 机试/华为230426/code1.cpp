@@ -19,6 +19,7 @@ int gNumNodes;
 int gEdgeSize = 0;
 vector<EdgeTp> gEdge;
 
+//无环N步内更新完最长距离，有环距离无限
 void readGraph() {
 	int index;
 	cin >> gNumNodes;
@@ -50,7 +51,7 @@ bool ReleaseGraph() {
 			continue;
 		}
 
-		if (gDistance[ed] == -1 || gDistance[ed] < gDistance[st] + 1) {
+		if (gDistance[ed] == -1 || gDistance[ed] < gDistance[st] + 1) { // 向大更新
 			gDistance[ed] = gDistance[st] + 1;
 			flag = true;
 		}
@@ -71,7 +72,7 @@ void StatDistance() {
 	for (int node_inedx = 0; node_inedx < gNumNodes; node_inedx++) {
 		ReleaseGraph();
 	}
-	if (ReleaseGraph()) {
+	if (ReleaseGraph()) {// 有环会
 		cout << -1 << endl;
 		return;
 	}
