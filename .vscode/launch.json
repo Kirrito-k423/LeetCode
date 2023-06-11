@@ -33,7 +33,7 @@
 			"name": "(gdb) 启动",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/1391/a.out",
+			"program": "${workspaceFolder}/周赛/double106/4.exe",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
