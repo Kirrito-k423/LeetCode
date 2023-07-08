@@ -28,35 +28,42 @@ public:
                 line.push(i);
             }else{
                 int remaini = i;
-                while(remaini>0 && !line.empty()){
+                while(remaini>0 && healths[remaini] > 0 && !line.empty()){
                     int ri = line.top();
                     if(healths[ri]==healths[remaini]){
                         healths[ri]=healths[remaini]=0;
+                        remaini = -1;
                         line.pop();
                     }else if(healths[ri]>healths[remaini]){
-                        healths[ri]-=healths[remaini];
+                        healths[ri]-=1;
                         healths[remaini]=0;
                         remaini = -1;
                     }else{
-                        healths[remaini]-=healths[ri];
+                        healths[remaini]-=1;
                         healths[ri]=0;
                         line.pop();
                     }
                 }
-                
-
             }
         }
         // print as followed
+        vector<int> result;
+        for(auto &health : healths){
+            if(health!=0){
+                result.push_back(health);
+            }
+        }
+        return result;
 
     }
 };
 
 
-// int main(){
-// 	Solution solution;
-// 	vector<vector<int>> edges = {{{0,1},{1,2},{1,3}}} ;
-// 	vector<int> price ={2,2,10,6};
-// 	vector<vector<int>> trips = {{{0,3},{2,1},{2,3}}};
-// 	cout << solution.minimumTotalPrice(4, edges, price, trips)<< endl;
-// }
+int main(){
+	Solution solution;
+	// vector<vector<int>> edges = {{{0,1},{1,2},{1,3}}} ;
+	vector<int> price ={13,3};
+	vector<int> price2 ={17,2};
+	// vector<vector<int>> trips = {{{0,3},{2,1},{2,3}}};
+	solution.survivedRobotsHealths(price,price2,"LR");
+}

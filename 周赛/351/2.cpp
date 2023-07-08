@@ -13,7 +13,6 @@ private:
         long long count = 0;
         unsigned long long mask = 1;
         int moveCount = 0;
-
         while (num != 0) {
             if (num & mask) {
                 if(moveCount<=60)
@@ -34,7 +33,9 @@ public:
         if(num2+1 > num1) return -1;     
         int result = 0;
         long long tmp = num1;
-        while(tmp > 0 && countSetBits(tmp)>result) {
+        while(tmp > 0 && (countSetBits(tmp)>result
+                || tmp < result)
+            ) {
             tmp -= num2;
             // cout << __builtin_popcount(tmp) << endl;
             result++;
