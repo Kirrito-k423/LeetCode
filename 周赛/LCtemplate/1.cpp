@@ -2,8 +2,10 @@
 // stdc++.h 几乎包含所有常用头文件
 using namespace std;
 typedef pair<int,int>PII;
-#define x first
-#define y second
+const int MOD = 1e9 + 7;
+const int INF = 2e9;
+// #define x first
+// #define y second
 typedef long long ll;
 const int N=1E5+10,M=210;
 
