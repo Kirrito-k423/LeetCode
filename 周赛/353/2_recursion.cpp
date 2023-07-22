@@ -54,12 +54,12 @@ public:
     }
 };
 
-// int main(){
-// 	Solution solution;
-// 	// vector<vector<int>> edges = {{{0,1},{1,2},{1,3}}} ;
-// 	vector<int> price ={1,3,6,4,1,2};
-// 	// vector<vector<int>> trips = {{{0,3},{2,1},{2,3}}};
-// 	cout << solution.maximumJumps(price, 2)<< endl;
-// }
+int main(){
+	Solution solution;
+	// vector<vector<int>> edges = {{{0,1},{1,2},{1,3}}} ;
+	vector<int> price ={1,3,6,4,1,2};
+	// vector<vector<int>> trips = {{{0,3},{2,1},{2,3}}};
+	cout << solution.maximumJumps(price, 2)<< endl;
+}
 
 // 为什么会超时呢？ 难道不是回溯法吗？
