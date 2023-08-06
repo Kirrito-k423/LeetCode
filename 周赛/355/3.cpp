@@ -16,29 +16,45 @@ public:
 		// can borrow elements from the next group
 		int n = usageLimits.size();
         sort(usageLimits.begin(), usageLimits.end(), std::greater<int>());
-		int result = 0;
-		auto it = lower_bound(usageLimits.begin(), usageLimits.end(), n, [](const int element, int value) {
-			return element >= value;
-		});
-		int i = distance(usageLimits.begin(), it);
-		int limit = INT_MAX;
-		for (; i < n; i++,limit--)
-		{
-			limit = min(limit,usageLimits[i]);
-			if(limit<=0) break;
-			else{
-				result = i;
-			}	
+		// 由于答案有明显上界 n 是二分答案
+
+
+		function<int(int)> check = [&](int answer){
+			long long gap = 0;
+			for(int i=0; i<n; i++){
+				int energy = usageLimits[i];
+				int toFill = (i<answer)?(answer-i):0;
+				if(energy>toFill){
+					int reset = energy - toFill;
+					if(gap>0){
+						gap=max(0ll,gap-(long long)reset);
+					}
+				}else{
+					gap+=toFill-energy;
+				}
+			}
+			return gap == 0;
+		};
+		if(check(n)) return n;
+		if(!check(0)) return 0;
+		int left = 0, right = n;
+		while(left < right-1){
+			int mid = left + ((right-left)>>1);
+			if(check(mid)){
+				left = mid;
+			}else{
+				right = mid;
+			}
 		}
-		assert(result > n);
-		return result;
+
+		return left;
 
     }
 };
 // int main(){
 // 	Solution solution;
-// 	vector<vector<int>> edges = {{{0,1},{1,2},{1,3}}} ;
-// 	vector<int> price ={2,2,10,6};
-// 	vector<vector<int>> trips = {{{0,3},{2,1},{2,3}}};
-// 	cout << solution.minimumTotalPrice(4, edges, price, trips)<< endl;
+// 	// vector<vector<int>> edges = {{{0,1},{1,2},{1,3}}} ;
+// 	vector<int> price ={2,1,2};
+// 	// vector<vector<int>> trips = {{{0,3},{2,1},{2,3}}};
+// 	cout << solution.maxIncreasingGroups(price)<< endl;
 // }

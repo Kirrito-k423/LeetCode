@@ -4,11 +4,12 @@
 	// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
+
 		{
 			"name": "(gdb) leetcode启动",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/周赛/double101/a.out",
+			"program": "${workspaceFolder}/周赛/357/a.out",
 			"args": [],
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
