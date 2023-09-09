@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int tmp_result(vector<int> &monster){
+long long tmp_result(vector<int> &monster){
 	int n = monster.size();
-	int result = 0;
+	long long  result = 0;
 	int cur_heita_strike = 0;
 	for(int i=0; i<n; i++){
 		int drop = monster[i] - cur_heita_strike;
@@ -33,12 +33,12 @@ int main() {
 	vector<int> monster(input.begin(), input.end());
 	// 贪心：优先触发各位置的half效果
 	sort(monster.begin(), monster.end());
-	int result1 = tmp_result(monster);
+	long long  result1 = tmp_result(monster);
 	monster = vector<int>(input.begin(), input.end());
 	sort(monster.begin(), monster.end(),std::greater<int>());
-	int result2 = tmp_result(monster);
+	long long  result2 = tmp_result(monster);
 	cout << min(result1,result2);
 }
 // 64 位输出请用 printf("%lld")
 
-// 33% pass ?
+// 33% pass ? tmd 又是 long long 的原因。10^5 个累加导致的，shit

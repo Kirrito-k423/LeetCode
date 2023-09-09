@@ -113,6 +113,8 @@ public:
 			}
 		}
 
+		// 并查集实现
+
 		int right = n-1, left = 0;
 
 		if(findPath(dist,right)) return right;

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+typedef long long ll;
 typedef pair<int,int> pii;
 int main() {
 	int n;
@@ -17,13 +17,14 @@ int main() {
 	}
 	//memory
 	
-	map<pii,int> memory;
-	int max_delta = 0;
-	function<int(int,int,int)> weight_tree = [&](int tree_index, int depth, int father_index){
+	//递归求子树的罪恶值和大小*子树的root相对ROOT的深度 的MAX
+	map<pii,ll> memory;
+	ll max_delta = 0;
+	function<ll(int,int,int)> weight_tree = [&](int tree_index, int depth, int father_index){
 		if(memory.count({tree_index,depth})){
 			return memory[{tree_index,depth}];
 		}
-		int &tmp =  memory[{tree_index,depth}];
+		ll &tmp =  memory[{tree_index,depth}];
 		tmp = w[tree_index] * depth;
 		for(auto & neighbor: adj[tree_index]){
 			if(neighbor!=father_index)
@@ -33,7 +34,7 @@ int main() {
 			max_delta = max(tmp - weight_tree(tree_index,2,father_index),max_delta);
 		return tmp;
 	};
-	int root_full = weight_tree(0,1,0);
+	ll root_full = weight_tree(0,1,0);
 
 	// bfs all node
 
